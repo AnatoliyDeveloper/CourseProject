@@ -93,7 +93,7 @@ public class User implements Entity, Serializable {
 
     @Override
     public String toOutputString(String delimiter) {
-        return new StringJoiner(delimiter).join(name, surname, birthday, email, address);
+        return new StringJoiner(delimiter).join(name, surname, birthday, email);
     }
 
     @Override

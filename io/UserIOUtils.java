@@ -14,7 +14,7 @@ import static JavaOOP.CourseProject.io.UserValidator.isLong;
  */
 public class UserIOUtils {
 
-    public UserIOUtils() {}
+    private UserIOUtils() {}
 
     public static final String CSV_DELIMITER = ";";
 
@@ -27,7 +27,7 @@ public class UserIOUtils {
 
     public static List<User> readUsersFromFile(String fileName) throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-            return readFilms(reader);
+            return readUsers(reader);
         }
     }
 
@@ -35,7 +35,7 @@ public class UserIOUtils {
      * @throws IOException
      * @throws IllegalFormatException
      */
-    private static List<User> readFilms(BufferedReader reader) throws IOException {
+    private static List<User> readUsers(BufferedReader reader) throws IOException {
 
         List <User> res = new ArrayList<>();
         String line;
@@ -67,9 +67,9 @@ public class UserIOUtils {
 
     // Output into text file
 
-    public static void writeUsersIntoFile(String fileName, List<User> films) throws FileNotFoundException {
+    public static void writeUsersIntoFile(String fileName, List<User> users) throws FileNotFoundException {
         try (PrintWriter writer = new PrintWriter(new File(fileName))) {
-            writeUsers(writer, films);
+            writeUsers(writer, users);
         }
     }
 
@@ -81,9 +81,9 @@ public class UserIOUtils {
 
     // Input from binary file
 
-    public static void writeUsersIntoBinFile(String fileName, List<User> films) throws IOException {
+    public static void writeUsersIntoBinFile(String fileName, List<User> users) throws IOException {
         try (ObjectOutput objectOutput = new ObjectOutputStream(new FileOutputStream(fileName))) {
-            objectOutput.writeObject(films);
+            objectOutput.writeObject(users);
         }
     }
 
@@ -129,7 +129,7 @@ public class UserIOUtils {
         }
         Long birthday = Long.parseLong(s);
         if (!isBirthday(birthday)) {
-            throw new IllegalFormatException("Birthday should be in the range [1...100_000_000_000]: " + s);
+            throw new IllegalFormatException("Birthday should be min 1: " + s);
         }
         return birthday;
     }

@@ -1,11 +1,13 @@
 package JavaOOP.CourseProject.entity;
 
+import JavaOOP.CourseProject.utils.StringJoiner;
+
 import java.io.Serializable;
 
 /**
  * Created by Anatoliy on 16.10.2016.
  */
-public class Post implements Serializable {
+public class Post implements Serializable, Entity {
 
     private static final long serialVersionUID = 3115515781705938651L;
 
@@ -59,6 +61,11 @@ public class Post implements Serializable {
         result = 31 * result + getPostText().hashCode();
         result = 31 * result + (int) (getDate() ^ (getDate() >>> 32));
         return result;
+    }
+
+    @Override
+    public String toOutputString(String delimiter) {
+        return new StringJoiner(delimiter).join(postText, date);
     }
 
     @Override

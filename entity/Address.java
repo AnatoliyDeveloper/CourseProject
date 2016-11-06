@@ -1,11 +1,13 @@
 package JavaOOP.CourseProject.entity;
 
+import JavaOOP.CourseProject.utils.StringJoiner;
+
 import java.io.Serializable;
 
 /**
  * Created by Anatoliy on 16.10.2016.
  */
-public class Address implements Serializable {
+public class Address implements Serializable, Entity {
 
     private static final long serialVersionUID = 4358801747209406971L;
 
@@ -74,5 +76,10 @@ public class Address implements Serializable {
                 ", city = '" + city + '\'' +
                 ", street = '" + street + '\'' +
                 '}';
+    }
+
+    @Override
+    public String toOutputString(String delimiter) {
+        return new StringJoiner(delimiter).join(country, city, street);
     }
 }

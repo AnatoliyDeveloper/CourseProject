@@ -1,5 +1,7 @@
 package JavaOOP.CourseProject.entity;
 
+import JavaOOP.CourseProject.utils.StringJoiner;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +9,7 @@ import java.util.List;
 /**
  * Created by Anatoliy on 10.10.2016.
  */
-public class Groups implements Serializable {
+public class Groups implements Serializable, Entity {
 
     private static final long serialVersionUID = -7025256154546158696L;
 
@@ -72,6 +74,11 @@ public class Groups implements Serializable {
         result = 31 * result + getUsers().hashCode();
         result = 31 * result + getPosts().hashCode();
         return result;
+    }
+
+    @Override
+    public String toOutputString(String delimiter) {
+        return new StringJoiner(delimiter).join(name, description);
     }
 
     @Override
