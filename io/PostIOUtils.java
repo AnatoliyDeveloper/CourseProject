@@ -1,6 +1,7 @@
 package JavaOOP.CourseProject.io;
 
 import JavaOOP.CourseProject.entity.Post;
+import JavaOOP.CourseProject.entity.User;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -110,14 +111,18 @@ public class PostIOUtils {
 
     private static Post parsePost(String line) {
         String[] tokens = line.split(CSV_DELIMITER);
+        User user = new User();
 
-        if (tokens.length < 2) {
-            throw new IllegalFormatException("Missing values, should be (postText;date): " + line);
+        if (tokens.length < 4) {
+            throw new IllegalFormatException("Missing values, should be (name;surname;postText;date): " + line);
         }
 
         Post post = new Post();
-        post.setPostText(tokens[0]);
-        post.setDate(parseDate(tokens[1]));
+        user.setName(tokens[0]);
+        user.setSurname(tokens[1]);
+        post.setUser(user);
+        post.setPostText(tokens[2]);
+        post.setDate(parseDate(tokens[3]));
 
         return post;
     }

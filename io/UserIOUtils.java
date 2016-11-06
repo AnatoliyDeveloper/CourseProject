@@ -1,5 +1,6 @@
 package JavaOOP.CourseProject.io;
 
+import JavaOOP.CourseProject.entity.Address;
 import JavaOOP.CourseProject.entity.User;
 
 import java.io.*;
@@ -109,9 +110,10 @@ public class UserIOUtils {
 
     private static User parseUser(String line) {
         String[] tokens = line.split(CSV_DELIMITER);
+        Address address = new Address();
 
-        if (tokens.length < 4) {
-            throw new IllegalFormatException("Missing values, should be (name;surname;birthday;email): " + line);
+        if (tokens.length < 7) {
+            throw new IllegalFormatException("Missing values, should be (name;surname;birthday;email;country;city;street): " + line);
         }
 
         User user = new User();
@@ -119,6 +121,10 @@ public class UserIOUtils {
         user.setSurname(tokens[1]);
         user.setBirthday(parseBirthday(tokens[2]));
         user.setEmail(tokens[3]);
+        address.setCountry(tokens[4]);
+        address.setCity(tokens[5]);
+        address.setStreet(tokens[6]);
+        user.setAddress(address);
 
         return user;
     }

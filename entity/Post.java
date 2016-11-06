@@ -65,7 +65,7 @@ public class Post implements Serializable, Entity {
 
     @Override
     public String toOutputString(String delimiter) {
-        return new StringJoiner(delimiter).join(postText, date);
+        return new StringJoiner(delimiter).join(user.getName(), user.getSurname(), postText, date);
     }
 
     @Override

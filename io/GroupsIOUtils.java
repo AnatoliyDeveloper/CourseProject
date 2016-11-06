@@ -111,7 +111,7 @@ public class GroupsIOUtils {
     private static Groups parseGroups(String line) {
         String[] tokens = line.split(CSV_DELIMITER);
 
-        if (tokens.length < 3) {
+        if (tokens.length < 2) {
             throw new IllegalFormatException("Missing values, should be (name;description): " + line);
         }
 

@@ -20,6 +20,11 @@ public class User implements Entity, Serializable {
     public User() {
     }
 
+    public User(String name, String surname) {
+        this.name = name;
+        this.surname = surname;
+    }
+
     public User(String name, String surname, long birthday) {
         this.name = name;
         this.surname = surname;
@@ -93,7 +98,7 @@ public class User implements Entity, Serializable {
 
     @Override
     public String toOutputString(String delimiter) {
-        return new StringJoiner(delimiter).join(name, surname, birthday, email);
+        return new StringJoiner(delimiter).join(name, surname, birthday, email, address.getCountry(), address.getCity(), address.getStreet());
     }
 
     @Override
