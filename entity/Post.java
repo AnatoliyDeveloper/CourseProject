@@ -3,6 +3,9 @@ package JavaOOP.CourseProject.entity;
 import JavaOOP.CourseProject.utils.StringJoiner;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * Created by Anatoliy on 16.10.2016.
@@ -42,6 +45,12 @@ public class Post implements Serializable, Entity {
         this.date = date;
     }
 
+    public void setDate(int day, int month, int year) {
+        GregorianCalendar calendar = new GregorianCalendar(year, month - 1, day);
+        Date date = calendar.getTime();
+        this.date = date.getTime();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -73,7 +82,7 @@ public class Post implements Serializable, Entity {
         return "\n" + "Post { " +
                 " user = " + user.getName() + user.getSurname() +
                 ", Post text = '" + postText + '\'' +
-                ", date = " + date +
+                ", date = " + DateFormat.getDateInstance(DateFormat.LONG).format(new Date(date)) +
                 '}'+ "\n" + "\n";
     }
 }

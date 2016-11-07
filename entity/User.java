@@ -3,6 +3,9 @@ package JavaOOP.CourseProject.entity;
 import JavaOOP.CourseProject.utils.StringJoiner;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * Created by Anatoliy on 08.10.2016.
@@ -53,6 +56,12 @@ public class User implements Entity, Serializable {
 
     public void setBirthday(long birthday) {
         this.birthday = birthday;
+    }
+
+    public void setBirthday(int day, int month, int year) {
+        GregorianCalendar calendar = new GregorianCalendar(year, month - 1, day);
+        Date date = calendar.getTime();
+        this.birthday = date.getTime();
     }
 
     public String getEmail() {
@@ -106,7 +115,7 @@ public class User implements Entity, Serializable {
         return "\n" + "User { " +
                 " name = '" + name + '\'' +
                 ", surname = '" + surname + '\'' +
-                ", birthday = " + birthday +
+                ", birthday = " + DateFormat.getDateInstance(DateFormat.LONG).format(new Date(birthday)) +
                 ", email = '" + email + '\'' +
                 ", address = " + address +
                 '}'+"\n";

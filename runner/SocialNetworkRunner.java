@@ -23,31 +23,31 @@ public class SocialNetworkRunner {
 
         user1.setName("Ivan");
         user1.setSurname("Lucian");
-        user1.setBirthday(1111111);
+        user1.setBirthday(8, 3, 1989);
         user1.setEmail("ivan@gmail.com");
         user1.setAddress(new Address("Ukraine", "Kiev", "Kharkov highway"));
 
         user2.setName("Johnny");
         user2.setSurname("Depp");
-        user2.setBirthday(1222222222);
+        user2.setBirthday(9, 06, 1963);
         user2.setEmail("johnny@depp.com");
         user2.setAddress(new Address("USA", "Los Angeles", "Wilshire Blvd"));
 
         user3.setName("Viktor");
         user3.setSurname("Frankenshteyn");
-        user3.setBirthday(1333333);
+        user3.setBirthday(31, 12, 1800);
         user3.setEmail("viktor@frankenshteyn.com");
         user3.setAddress(new Address("Romania", "Transylvania", "Vampire street"));
 
         user4.setName("Vin");
         user4.setSurname("Diesel");
-        user4.setBirthday(144444);
+        user4.setBirthday(18, 7, 1967);
         user4.setEmail("vin@diesel.com");
         user4.setAddress(new Address("USA", "Los Angeles", "East Kensington Road"));
 
         user5.setName("Merry");
         user5.setSurname("Christmas");
-        user5.setBirthday(1555555);
+        user5.setBirthday(25, 12, 1);
         user5.setEmail("merry@christmas.com");
         user5.setAddress(new Address("England", "London", "Oxford street"));
 
@@ -69,19 +69,19 @@ public class SocialNetworkRunner {
         Post post4 = new Post();
 
         post1.setUser(user2);
-        post1.setDate(1111111111);
+        post1.setDate(10, 10, 2016);
         post1.setPostText("Hey. I'm Johnny Depp, also known as Jack Sparrow... How's tricks?");
 
         post2.setUser(user3);
-        post2.setDate(12222222);
+        post2.setDate(21, 12, 2012);
         post2.setPostText("Hey Ya. How are you? I am Victor Frankenstein. That I revived the very monster. Ha ha ha !!!");
 
         post3.setUser(user1);
-        post3.setDate(133333333);
+        post3.setDate(8, 8, 2012);
         post3.setPostText("Hello. I am Lucian Ivan. Regular guy from Kiev. Where are you from?");
 
         post4.setUser(user5);
-        post4.setDate(1444444444);
+        post4.setDate(7, 11, 2016);
         post4.setPostText("Hey. I'm Merry. Merry Christmas. Happy you!!!");
 
         List <Post> postsGroup1 = new ArrayList<>();

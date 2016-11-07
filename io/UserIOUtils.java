@@ -133,7 +133,7 @@ public class UserIOUtils {
         if (!isLong(s)) {
             throw new IllegalFormatException("Illegal Birthday: " + s);
         }
-        Long birthday = Long.parseLong(s);
+        long birthday = Long.parseLong(s);
         if (!isBirthday(birthday)) {
             throw new IllegalFormatException("Birthday should be min 1: " + s);
         }
